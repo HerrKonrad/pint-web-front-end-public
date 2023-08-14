@@ -45,7 +45,7 @@
 
 ### Instalação / Execução
 Abaixo está um exemplo de como você pode instalar e configurar o projeto.<p>
-Mas é necessário o Back-End, o qual está neste repositorio [Back-end](https://github.com/HerrKonrad/pint-2023-back-end)
+Mas é necessário o Back-End, o qual está neste repositorio [Back-end](https://github.com/HerrKonrad/pint-backend-public)
 
 1-Clone do repositório
    ```sh
