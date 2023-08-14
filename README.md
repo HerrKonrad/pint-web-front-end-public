@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
+# PROJETO INTEGRADO - SOFTINSA APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Índice
+* [Recursos e Funcionalidades](#recursos-e-funcionalidades)
+* [Tecnologias Usadas](#tecnologias-usadas)
+* [Links](#links)
+* [Instalação / Execução](#instalação--execução)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+![SoftinsaWeb](https://github.com/HerrKonrad/pint-2023-web-front-end/blob/main/SoftinsaWeb.png)
+(Pagina Princial)
+<p align="right">(<a href="#readme-top">Voltar para cima</a>)</p>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Recursos e Funcionalidades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Ofertas de Emprego: Plataforma com oportunidades de emprego em diversas áreas. Candidatos podem se candidatar e acompanhar o processo de seleção. Gestores de RH podem gerenciar ofertas e entrevistas.
+  
+- Reuniões e Notas: Ferramenta para agendar reuniões com candidatos. Permite fazer notas e avaliações durante as entrevistas.
 
-### `npm test`
+- Ideias e Gestão de Ideias: Espaço para propor ideias. Gestores revisam, analisam e implementam as sugestões aprovadas.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Oportunidades de Negócio: Local para empresas e empreendedores compartilharem projetos, parcerias ou necessidades específicas. Gestores revisam, agendam reuniões e mantêm um histórico das ações.
 
-### `npm run build`
+- Lead e Acompanhamento de Oportunidades: Sistema de acompanhamento de oportunidades de negócio para gestão eficiente.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Administração e Reporting: Área para gerenciar usuários, permissões e obter relatórios detalhados sobre as atividades do site.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p align="right">(<a href="#readme-top">Voltar para cima</a>)</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tecnologias Usadas 
+[![React][React.js]][React-url][![React][React-version]][React-url] <p> 
+[![Bootstrap][Bootstrap.com]][Bootstrap-url][![Bootstrap][Bootstrap-version]][Bootstrap-url] <p>
+[![Axios][Axios.com]][Axios-url][![Axios][Axios-version]][Axios-url]
 
-### `npm run eject`
+<p align="right">(<a href="#readme-top">Voltar para cima</a>)</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Links 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Documentação](https://1drv.ms/b/s!Alq8HOVAHdvAgZkmP0F62-AqYZtICQ?e=a577RH) <p>
+[Protótipo do Figma](https://www.figma.com/file/UXmK1j6RZnFWYdYAiMSCAe/Alta-Fidelidade?type=design&node-id=2624-563726&mode=design) <p>
+[Micro Site](https://micrositepint-2023.onrender.com/)
+<p align="right">(<a href="#readme-top">Voltar para cima</a>)</p>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Instalação / Execução
+Abaixo está um exemplo de como você pode instalar e configurar o projeto.<p>
+Mas é necessário o Back-End, o qual está neste repositorio [Back-end](https://github.com/HerrKonrad/pint-2023-back-end)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1-Clone do repositório
+   ```sh
+   git clone https://github.com/HerrKonrad/pint-2023-web-front-end.git
+   ```
+2-Instalação das dependências
+  ```sh
+  npm install
+  ```
+3- Usamos variáveis de ambiente para a URL do back-end. Neste caso, está localmente e a porta por default é a 4000 
+  ```sh
+    $env:REACT_APP_API_URL="http://localhost:4000/"; npm start
+  ```
+<p align="right">(<a href="#readme-top">Voltar para cima</a>)</p>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[React-version]: https://img.shields.io/badge/version_18.2.0-20232A?style=for-the-badge
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[Bootstrap-version]: https://img.shields.io/badge/version_5.3.0-563D7C?style=for-the-badge
 
-### Code Splitting
+[Axios.com]: https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white
+[Axios-url]: https://axios-http.com/docs/intro
+[Axios-version]: https://img.shields.io/badge/version_1.3.4-5A29E4?style=for-the-badge
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -20,9 +20,11 @@ function Candidatura() {
   const [showAlert, setShowAlert] = useState(false);
   const history = useHistory();
 
-  
+  const [atualizarLista, setAtualizarLista] = useState(1);
+
   const handleCloseModal = () => {
     setShowModal(false);
+    setAtualizarLista(atualizarLista + 1)
   };
   const handleCloseAlert = () => {
     setShowAlert(false);
@@ -89,7 +91,7 @@ useEffect(() => {
       setEntrevista(response.data.message);
       }
       fetchEntrevistas();
-    }, [ncand]);
+    }, [ncand,atualizarLista]);
 
 
     useEffect(() => {

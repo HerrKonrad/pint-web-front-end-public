@@ -1,23 +1,28 @@
 import React, { useState } from "react";
-import "./styles.css";
-import api from "../../services/api";
-import { useHistory } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { Envelope, LockFill, EyeFill, EyeSlashFill } from "react-bootstrap-icons";
-import google from "../../assets/google.png";
+import {
+  Envelope,
+  EyeFill,
+  EyeSlashFill,
+  LockFill,
+} from "react-bootstrap-icons";
+import { useHistory } from "react-router-dom";
 import facebook from "../../assets/facebook.jpeg";
-import { useToast } from '../../components/toasts/toast';
+import google from "../../assets/google.png";
+import { useToast } from "../../components/toasts/toast";
+import api from "../../services/api";
+import "./styles.css";
 
 function LoginPage({ verificarAutenticacao }) {
   let history = useHistory();
-  const { showSuccessToast, showErrorToast} = useToast();
+  const { showSuccessToast, showErrorToast } = useToast();
   const [Email, setEmail] = useState("");
   const [Senha, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const submit = async (event) => {
     event.preventDefault();
-  
+
     try {
       const user = await api.post("/api/login", { Email, Senha });
       localStorage.setItem("token", user.data.message); // guardar o token no localStorage
@@ -36,7 +41,7 @@ function LoginPage({ verificarAutenticacao }) {
       showSuccessToast(`${greeting}, ${nome}. Seja bem-vindo!`);
 
       const cargo = localStorage.getItem("Cargo");
-      
+
       if (cargo === "0") {
         history.push("/reporting");
       } else if (cargo === "3") {
@@ -50,7 +55,7 @@ function LoginPage({ verificarAutenticacao }) {
       }
     } catch (err) {
       console.log(err);
-  
+
       if (err.code === "ERR_NETWORK") {
         showErrorToast("Erro de Conexão");
       } else {
@@ -61,7 +66,7 @@ function LoginPage({ verificarAutenticacao }) {
 
   const loginFacebook = (event) => {
     event.preventDefault();
-    const authUrl = "https://pint-2023-api.onrender.com/api/facebook";
+    const authUrl = `${process.env.REACT_APP_BASE_URL}/api/facebook`;
 
     const authWindow = window.open(authUrl, "_blank", "width=500,height=600");
 
@@ -88,7 +93,7 @@ function LoginPage({ verificarAutenticacao }) {
 
   const loginGoogle = (event) => {
     event.preventDefault();
-    const authUrl = "https://pint-2023-api.onrender.com/api/google/callback";
+    const authUrl = `${process.env.REACT_APP_BASE_URL}/api/google/callback`;
 
     const authWindow = window.open(authUrl, "_blank", "width=500,height=600");
 
@@ -141,24 +146,48 @@ function LoginPage({ verificarAutenticacao }) {
                   <div className="form-group py-2">
                     <div className="input-field">
                       <Envelope className="p-2 text-muted" />
-                      <input className="form-control" value={Email} type="text" placeholder="Email" onChange={(event) => setEmail(event.target.value)} required />
+                      <input
+                        className="form-control"
+                        value={Email}
+                        type="text"
+                        placeholder="Email"
+                        onChange={(event) => setEmail(event.target.value)}
+                        required
+                      />
                     </div>
                   </div>
                   <div className="form-group py-1 pb-2">
                     <div className="input-field">
                       <LockFill className="px-2 text-muted" />
-                      <input className="form-control" value={Senha} type={showPassword ? "text" : "password"} placeholder="Palavra passe" onChange={(event) => setPassword(event.target.value)} required />
-                      <button className="btn bg-white text-muted" onClick={() => setShowPassword(!showPassword)} type="button">
+                      <input
+                        className="form-control"
+                        value={Senha}
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Palavra passe"
+                        onChange={(event) => setPassword(event.target.value)}
+                        required
+                      />
+                      <button
+                        className="btn bg-white text-muted"
+                        onClick={() => setShowPassword(!showPassword)}
+                        type="button"
+                      >
                         {showPassword ? <EyeSlashFill /> : <EyeFill />}
                       </button>
                     </div>
                   </div>
                   <div className="form-inline">
-                    <button id="forgot" className="btn font-weight-bold" onClick={handleClickEsquecer}>
+                    <button
+                      id="forgot"
+                      className="btn font-weight-bold"
+                      onClick={handleClickEsquecer}
+                    >
                       Esqueceu a palavra passe?
                     </button>
                   </div>
-                  <button className="btn btn-primary btn-block mt-3 w-100">Iniciar Sessão</button>
+                  <button className="btn btn-primary btn-block mt-3 w-100">
+                    Iniciar Sessão
+                  </button>
                   <div className="text-center pt-4 text-muted">
                     Não tem uma conta?{" "}
                     <button className="btn" onClick={handleClickRegistar}>
@@ -169,11 +198,19 @@ function LoginPage({ verificarAutenticacao }) {
               </div>
               <div className="mx-3 my-2 py-2 bordert">
                 <div className="text-center py-3">
-                  <Button onClick={loginFacebook} variant="transparent" className="px-2">
+                  <Button
+                    onClick={loginFacebook}
+                    variant="transparent"
+                    className="px-2"
+                  >
                     <img src={facebook} alt="Facebook" />
                   </Button>
 
-                  <Button onClick={loginGoogle} variant="transparent" className="px-2">
+                  <Button
+                    onClick={loginGoogle}
+                    variant="transparent"
+                    className="px-2"
+                  >
                     <img src={google} alt="Google" />
                   </Button>
                 </div>

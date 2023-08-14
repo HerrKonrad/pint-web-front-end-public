@@ -78,10 +78,11 @@ const ModalEditarBeneficios = ({ show, onHide,beneficio}) => {
             EnderecoImagem:imagemLink 
         }).then(beneficios => {
             console.log(beneficios);
-            
+            setSubmitting(false);
             showSuccessToast("Enviado com sucesso")
             }).catch(err => {
                console.log(err);
+               setSubmitting(false);
             })
         }
       return

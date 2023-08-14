@@ -69,14 +69,14 @@ const ModalCriarBeneficios = ({ show, onHide}) => {
       EnderecoImagem:imagemLink }
     
     ).then(beneficios => {
-        
+      setSubmitting(false);
       console.log(beneficios);
 
       showSuccessToast("Enviado com sucesso")
 
     }).catch(err => {
         console.log(err);
-
+        setSubmitting(false);
     })
   } 
 

@@ -47,6 +47,7 @@ const ModalCandidatar = ({ show, onHide, IdVaga, IdUtilizador, NomeVaga }) => {
         setSubmitting(true);
       })
       .catch((err) => {
+        setSubmitting(false);
         showErrorToast(err.response.data.message);
         onHide();
         console.log(err);
@@ -95,6 +96,7 @@ const ModalCandidatar = ({ show, onHide, IdVaga, IdUtilizador, NomeVaga }) => {
       setCV(file);
       setIsUserDataEdited(true);
     } else {
+      setSubmitting(false);
       showErrorToast("Escolha o formato de ficheiro correto!")
       event.target.value = "";
     }

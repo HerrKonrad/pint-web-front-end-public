@@ -53,13 +53,14 @@ const ModalRecomendar = ({ show, onHide, IdVaga,IdUtilizador }) => {
     
         } 
         api.post("/api/indicacoes" , recomendarCand).then(indicacoes => {
-        
+            setSubmitting(false);
            console.log(indicacoes);
            showSuccessToast("Enviado com sucesso")
            onHide();
 
 
         }).catch(err => {
+            setSubmitting(false);
             console.log(err);
             showErrorToast(err.response.data.message)
         })
@@ -69,6 +70,7 @@ const ModalRecomendar = ({ show, onHide, IdVaga,IdUtilizador }) => {
         
         const file = event.target.files[0];
         if (file.size > 5000000) {
+            setSubmitting(false);
             showErrorToast("O arquivo deve ter menos de 5MB, escolha outro ficheiro!")
             event.target.value = "";
           }
@@ -77,6 +79,7 @@ const ModalRecomendar = ({ show, onHide, IdVaga,IdUtilizador }) => {
           setCV(file);
 
         } else {
+            setSubmitting(false);
             showErrorToast("Selecione o tipo de ficheiro correto!")
             event.target.value = "";
         }

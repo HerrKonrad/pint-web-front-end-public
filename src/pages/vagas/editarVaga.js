@@ -61,16 +61,18 @@ function EditarVaga() {
       })
       .then(() => {
         setIsUserDataEdited(false)
-
+        setSubmitting(false);
           showSuccessToast("Guardado com sucesso")
           history.push("/vagas");
 
       })
       .catch((err) => {
         console.log(err);
+        setSubmitting(false);
         showErrorToast(err.response.data.message)
       });
     }else{
+      setSubmitting(false);
         showErrorToast("Não foi alterada a vaga")
         history.push("/vagas");
     }

@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from 'react';
-import { Modal, Button } from 'react-bootstrap';
-import api from '../../services/api';
-import { useToast } from "../../components/toasts/toast";
+import React, { useEffect, useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
 import * as Icon from 'react-bootstrap-icons';
+import { useToast } from "../../components/toasts/toast";
+import api from '../../services/api';
 
 const ModalCriarOportunidade = ({ show, onHide, nCargo}) => {
 
@@ -112,12 +112,11 @@ const ModalCriarOportunidade = ({ show, onHide, nCargo}) => {
               ).then(clientes => {
                   
                 console.log(clientes);
-
                 nCliente= clientes.data.message.NCliente;
           
               }).catch(err => {
                   console.log(err);
-          
+                  setSubmitting(false);
               })
         }
 
@@ -129,12 +128,11 @@ const ModalCriarOportunidade = ({ show, onHide, nCargo}) => {
               ).then(etiqueta => {
                   
                 console.log(etiqueta);
-
                 nEtiqueta= etiqueta.data.message.NEtiqueta;
           
               }).catch(err => {
                   console.log(err);
-          
+                  setSubmitting(false);
               })
         }
 
@@ -145,12 +143,11 @@ const ModalCriarOportunidade = ({ show, onHide, nCargo}) => {
               ).then(tipoProjeto => {
                   
                 console.log(tipoProjeto);
-
                 nTipoProjeto = tipoProjeto.data.message.NTipoProjeto ;
           
               }).catch(err => {
                   console.log(err);
-          
+                  setSubmitting(false);
               })
 
         }
@@ -177,7 +174,7 @@ const ModalCriarOportunidade = ({ show, onHide, nCargo}) => {
               
               ).then(opotunidade => {
                   
-    
+                setSubmitting(false);
                 console.log(opotunidade);
                 
                 showSuccessToast("Enviado com sucesso")
@@ -204,6 +201,7 @@ const ModalCriarOportunidade = ({ show, onHide, nCargo}) => {
               })
         }else
         {
+            setSubmitting(false);
             showErrorToast("Falta a Área de negócio ou Tipo Projeto!")
         }
         
